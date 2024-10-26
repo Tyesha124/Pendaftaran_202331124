@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pendaftaran Anggota</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <img src="gambar/WhatsApp_Image_2024-10-26_at_21.08.01_8576927e-removebg-preview.png" alt="Ikon Form" class="header-icon">
+            <h1>Form Pendaftaran</h1>
+            <p class="header-subtitle">Bergabunglah bersama kami dan nikmati berbagai manfaatnya!</p>
+        </div>
+    </header>
+
+    <div class="form-container">
+        <img src="gambar/f942096fd8263de00019be908ea09b93.jpg" alt="Ikon Dekoratif" class="decorative-icon">
+        
+        <h2>Form Pendaftaran Anggota</h2>
+        <form id="registrationForm" action="member.html" onsubmit="return validateForm()">
+            <label for="name">Nama Lengkap:</label>
+            <input type="text" id="name" name="name" required minlength="3">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required minlength="6">
+
+            <label for="confirm_password">Konfirmasi Password:</label>
+            <input type="password" id="confirm_password" name="confirm_password" required>
+
+            <label for="phone">Nomor Telepon:</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{10,13}" required placeholder="Contoh: 081234567890">
+
+            <label for="gender">Jenis Kelamin:</label>
+            <select id="gender" name="gender" required>
+                <option value="">Pilih</option>
+                <option value="male">Laki-Laki</option>
+                <option value="female">Perempuan</option>
+            </select>
+
+            <label for="address">Alamat:</label>
+            <textarea id="address" name="address" required></textarea>
+
+            <label for="birthdate">Tanggal Lahir:</label>
+            <input type="date" id="birthdate" name="birthdate" required>
+
+            <label for="job">Pekerjaan:</label>
+            <input type="text" id="job" name="job" required>
+
+            <label for="education">Pendidikan Terakhir:</label>
+            <select id="education" name="education" required>
+                <option value="">Pilih</option>
+                <option value="sma">SMA</option>
+                <option value="diploma">Diploma</option>
+                <option value="sarjana">Sarjana</option>
+                <option value="magister">Magister</option>
+            </select>
+
+            <button type="submit">Daftar</button>
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirm_password").value;
+            if (password !== confirmPassword) {
+                alert("Password dan konfirmasi password tidak cocok!");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
